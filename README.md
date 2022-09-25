@@ -29,18 +29,18 @@ and return 'pred_x0' instead of the final latent
             return img, intermediates
         
         @torch.no_grad()
-        def decode(self, x_latent, cond, t_start, unconditional_guidance_scale=1.0, unconditional_conditioning=None,
+        def decode(self, x_latent, cond, t_start,
             ...
                 if fast_mode and i>=int(7.*total_steps/10.):
                     return pred_x0, intermediates
             return x_dec, intermediates
 
 ## Results
-* If you exit sampling process 30% earlier and use 'pred_x0' instead of 'x_inter' for image generation you get an image depicting the same content, just with a little bit less details. The rows in figure below show in comparison:
+* If you exit the sampling process 30% earlier and use 'pred_x0' instead of 'x_inter' to generate the images you get images depicting the same content, just with a little bit less detail. The rows in figure below show in comparison:
     - images generated from latents 'x_inter' in step 35 (of 50 ddim_steps)
     - images generated from prediction 'pred_x0' in step 35
     - difference between the step 35 predictions to
-    - images generated from the final latents 'x_inter' after 50 ddim_steps
+    - images generated from the final latents 'x_inter' after 50 ddim_steps  
     
     <img src="./Step35.png" alt="drawing" width="768"/>
     
